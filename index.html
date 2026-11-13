@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Music Player</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- twinkling sparkles in the background -->
+  <div class="sparkles" aria-hidden="true">
+    <i style="--x:8%;  --y:14%; --s:22px; --d:0s"></i>
+    <i style="--x:84%; --y:9%;  --s:30px; --d:.8s"></i>
+    <i style="--x:92%; --y:48%; --s:18px; --d:1.6s"></i>
+    <i style="--x:5%;  --y:62%; --s:28px; --d:.4s"></i>
+    <i style="--x:76%; --y:88%; --s:22px; --d:1.2s"></i>
+    <i style="--x:20%; --y:90%; --s:16px; --d:2s"></i>
+  </div>
+
+  <main class="player" id="player">
+    <div class="cover-wrap">
+      <svg class="crown" viewBox="0 0 64 44" aria-hidden="true">
+        <path d="M6 36 L2 10 L18 22 L32 4 L46 22 L62 10 L58 36 Z" />
+        <circle cx="2" cy="10" r="3.5" />
+        <circle cx="32" cy="4" r="3.5" />
+        <circle cx="62" cy="10" r="3.5" />
+      </svg>
+      <div class="cover-frame">
+        <img class="cover" id="cover" alt="Album cover">
+      </div>
+    </div>
+
+    <div class="info">
+      <h1 id="title">Toy Story</h1>
+      <p id="artist">Winston Bugil</p>
+    </div>
+
+    <div class="seek">
+      <input type="range" id="seek" min="0" max="100" value="0" step="0.1" aria-label="Seek">
+      <div class="times">
+        <span id="current">0:00</span>
+        <span id="duration">0:00</span>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="loop" class="icon-btn small" aria-label="Loop" aria-pressed="false" title="Loop">
+        <svg viewBox="0 0 24 24"><path d="M17 2l4 4-4 4M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4M21 13v2a3 3 0 0 1-3 3H3" /></svg>
+      </button>
+      <button id="back" class="icon-btn" aria-label="Back 10 seconds" title="Back 10s">
+        <svg viewBox="0 0 24 24"><path d="M11 19l-9-7 9-7v14zM22 19l-9-7 9-7v14z" /></svg>
+      </button>
+      <button id="play" class="play-btn" aria-label="Play">
+        <svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+        <svg class="i-pause" viewBox="0 0 24 24"><path d="M7 5h4v14H7zM13 5h4v14h-4z" /></svg>
+      </button>
+      <button id="forward" class="icon-btn" aria-label="Forward 10 seconds" title="Forward 10s">
+        <svg viewBox="0 0 24 24"><path d="M13 19l9-7-9-7v14zM2 19l9-7-9-7v14z" /></svg>
+      </button>
+      <button id="mute" class="icon-btn small" aria-label="Mute" title="Mute">
+        <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 4V5L7 9H3z" /><path class="wave" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" /></svg>
+      </button>
+    </div>
+
+    <div class="volume">
+      <input type="range" id="volume" min="0" max="1" step="0.01" value="0.8" aria-label="Volume">
+    </div>
+
+    <p class="error" id="error" hidden></p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
